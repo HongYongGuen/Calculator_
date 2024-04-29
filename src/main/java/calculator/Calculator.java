@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
-    private List<Integer> results = new ArrayList<>();
+    private List<Integer> results;
+    /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
+    /* 생성자 구현 */
+    Calculator (){
+         this.results= new ArrayList<>();
+    }
     public int calculate(int firstNumber, int secondNumber, char operation) throws BadInputException{
         /* 위 요구사항에 맞게 구현 */
         return switch (operation){//switch문 사용.. 오류는 프로그램 끝나니깐 yield 안만들어줌
