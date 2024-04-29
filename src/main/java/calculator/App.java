@@ -33,7 +33,7 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             /* 위 요구사항에 맞게 구현 */
             String remove = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력
-            if(remove.toLowerCase().equals("remove")) calculator.setDelResults(0);//대소문자 상관없이  입력 확인 첫번째 요소 삭제
+            if(remove.toLowerCase().equals("remove")) calculator.removeResult();//대소문자 상관없이  입력 확인 첫번째 요소 삭제
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             /* 위 요구사항에 맞게 구현 */
             String inquiry = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력

@@ -32,4 +32,8 @@ public class Calculator {
         //값 제거 setter
         this.results.remove(idx);
     }
+    public void removeResult() {
+        /* 구현 */
+        this.results.removeFirst();
+    }
 }
