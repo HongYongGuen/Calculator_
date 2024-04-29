@@ -1,6 +1,11 @@
 package calculator;
+
+import java.util.List;
+
 public class ArithmeticCalculator extends Calculator{
     AbstractOperation abstractOperation;
+    static List<Double> Results;//연산자로 계속 돌릴꺼니깐.. 그냥 스태틱으로 안날라가게 하고..
+    //static 은 제네릭 안되니깐.. 그냥 더블로 고정!
     ArithmeticCalculator(){
 
     }
@@ -18,7 +23,7 @@ public class ArithmeticCalculator extends Calculator{
                 if(secondNumber==0) throw new BadInputException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                 this.abstractOperation=new ModOperator();
             }
-            default -> throw new BadInputException("연산자를 잘못 입력하셨습니다.");
+            case null->throw new BadInputException("연산자를 잘못 입력하셨습니다.");
         };
         return abstractOperation.operate(firstNumber,secondNumber);
     }
