@@ -4,11 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
+
+    static final double PI = 3.14159;
+    /* static, final 활용 */
+    /* 원의 넓이 결과를 저장하는 컬렉션 타입의 필드 선언 및 생성 */
     private List<Integer> results;
+    private List<Double> circleResults;
+
+
+    //static final 고정되어서 변하지 않는 수 원의 넓이 에서는 PI가 활용될 수 있다.
     /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
-    /* 생성자 구현 */
+    /* 생성자 수정 */
     Calculator (){
          this.results= new ArrayList<>();
+         this.circleResults = new ArrayList<>();
     }
     public int calculate(int firstNumber, int secondNumber, char operation) throws BadInputException{
         /* 위 요구사항에 맞게 구현 */
@@ -49,4 +58,30 @@ public class Calculator {
         }
         System.out.println();
     }
+
+    /* 원의 넓이를 구하는 메서드 선언*/
+    public double calculateCircleArea(double radius) {
+        /* 원의 넓이 계산 구현 */
+        return radius*radius*PI;
+    }
+    /* 원의 넓이 저장 필드 Getter, Setter, 조회 메서드 구현 */
+    public List<Double> getCircleResults(){
+        //참조변수라서 얕은복사 말고 깊은복사로 새로 가져옴;
+        return new ArrayList<>(this.circleResults);
+    }
+
+    public void setCircleResults(double value){
+        //r값 추가 setter
+        this.circleResults.add(value);
+    }
+
+    public void inquiryCircleResults() {
+        /* 구현 */
+        System.out.print("저장된 원의 넓이 값 : ");
+        for(double i: circleResults) {//getter로 가져오기
+            System.out.printf("%.2f ",i);
+        }
+        System.out.println();
+    }
+
 }
