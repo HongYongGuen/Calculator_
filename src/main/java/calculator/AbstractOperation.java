@@ -1,7 +1,7 @@
 package calculator;
 
-public abstract class AbstractOperation {
-    public abstract int operate (int n1, int n2);
+public abstract class AbstractOperation<T extends Number,N extends Number> {
+    public abstract double operate (T n1, N n2);
 }
 
 

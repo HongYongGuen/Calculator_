@@ -1,8 +1,8 @@
 package calculator;
 
-public class AddOperator extends AbstractOperation{
+public class AddOperator<T extends Number, N extends Number> extends AbstractOperation<T,N>{
     @Override
-    public int operate(int n1, int n2) {
-        return n1+n2;
+    public double operate(T n1, N n2) {
+        return n1.doubleValue()+n2.doubleValue();
     }
 }

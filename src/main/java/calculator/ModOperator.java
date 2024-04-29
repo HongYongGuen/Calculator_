@@ -1,8 +1,8 @@
 package calculator;
 
-public class ModOperator extends AbstractOperation {
+public class ModOperator<T extends Number, N extends Number> extends AbstractOperation<T,N> {
 
-    public int operate(int n1, int n2) {
-        return n1 % n2;
+    public double operate(T n1, N n2) {
+        return n1.doubleValue() % n2.intValue();
     }
 }
