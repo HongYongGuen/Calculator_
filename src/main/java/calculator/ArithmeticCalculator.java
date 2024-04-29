@@ -6,15 +6,15 @@ public class ArithmeticCalculator extends Calculator{
     }
     public int calculate(int firstNumber, int secondNumber,char op) throws BadInputException{
         /* 위 요구사항에 맞게 구현 */
-        switch (op){
-            case '+'->this.abstractOperation=new AddOperator();
-            case '-'-> this.abstractOperation=new SubtractOperator();
-            case '*'-> this.abstractOperation=new MultiplyOperator();
-            case '/'-> {
+        switch (OperateType.convert(op)){
+            case ADD->this.abstractOperation=new AddOperator();
+            case SUBTRACT-> this.abstractOperation=new SubtractOperator();
+            case MULTIPLY-> this.abstractOperation=new MultiplyOperator();
+            case DIVIDE-> {
                 if(secondNumber==0) throw new BadInputException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                 this.abstractOperation=new DivideOperator();
             }
-            case '%'-> {
+            case MOD-> {
                 if(secondNumber==0) throw new BadInputException("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다. ");
                 this.abstractOperation=new ModOperator();
             }
