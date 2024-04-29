@@ -36,4 +36,12 @@ public class Calculator {
         /* 구현 */
         this.results.removeFirst();
     }
+    public void inquiryResults() {
+        /* 구현 */
+        System.out.print("저장된 결과 값 : ");
+        for(int i: results) {//getter로 가져오기
+            System.out.print(i+" ");
+        }
+        System.out.println();
+    }
 }

@@ -37,13 +37,7 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             /* 위 요구사항에 맞게 구현 */
             String inquiry = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력
-            if(inquiry.toLowerCase().equals("inquiry")){
-                System.out.print("저장된 결과 값 : ");
-                for(int i: calculator.getResults()) {//getter로 가져오기
-                    System.out.print(i+" ");
-                }
-                System.out.println();
-            }
+            if(inquiry.toLowerCase().equals("inquiry")) calculator.inquiryResults();
                 //대소문자 상관없이 입력 확인 및 출력
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
