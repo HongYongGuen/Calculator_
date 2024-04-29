@@ -30,14 +30,24 @@ public class App {
                         result = firstNumber / secondNumber;
                     } else {
                         System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+                        continue;//분모 잘못 입력할 경우 값 저장 안되게 수정
                     }
                 }
-                default -> System.out.println("연산자를 잘못 입력하셨습니다.");
+                default -> {
+                    System.out.println("연산자를 잘못 입력하셨습니다.");
+                    continue;//연산자 잘못 입력할 경우 값 저장 안되게 수정
+                }
             }
             System.out.println("결과: " + result);
             /* 연산의 결과를 배열에 저장합니다. */
             /* index를 증가 시킵니다. */
-            results[idx++]=result;
+            if(idx<9) results[idx++]=result;
+            else{
+                for(int i=0;i<8;i++){
+                    results[i]=results[i+1];
+                }
+                results[idx]=result;
+            }
             sc.nextLine();//enter키 받아주기
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
