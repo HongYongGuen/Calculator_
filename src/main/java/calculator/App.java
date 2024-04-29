@@ -7,7 +7,9 @@ public class App {
     public static void main(String[] args) {
         /* 연산의 결과를 저장할 수 있도록 적합한 타입의 배열을 생성합니다. */
         /* 연산의 결과가 저장된 배열의 마지막 index를 저장하는 변수를 선언 */
-        Calculator calculator = new Calculator();//Calculatro 객체 생성
+        //객체 2개 만들기
+        ArithmeticCalculator calculator = new ArithmeticCalculator();
+        CircleCalculator circleCalculator = new CircleCalculator();
         Scanner sc = new Scanner(System.in);
         while(true){
             /* 사칙연산을 진행할지 원의 너비를 구할지 선택 구현 */
@@ -23,15 +25,15 @@ public class App {
                 /* 원의 넓이를 구하는 경우 반지름을 입력받아 원의 넓이를 구한 후 출력*/
                 double radius = sc.nextDouble();
                 /* 원의 넓이 저장 */
-                double result = calculator.calculateCircleArea(radius);
+                double result = circleCalculator.calculateCircleArea(radius);
                 System.out.println("원의 널이: " + result);
-                calculator.setCircleResults(result);
+                circleCalculator.setAddResults(result);
                 sc.nextLine();//엔터키 입력 지우기
                 /* 저장된 원의 넓이 값들 바로 전체 조회 */
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 /* 위 요구사항에 맞게 구현 */
                 String inquiry = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력
-                if(inquiry.toLowerCase().equals("inquiry")) calculator.inquiryCircleResults();
+                if(inquiry.toLowerCase().equals("inquiry")) circleCalculator.inquiryResults();
                 //대소문자 상관없이 입력 확인 및 출력
             }
             else{//사칙연산
