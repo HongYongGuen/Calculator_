@@ -48,4 +48,10 @@ public class ArithmeticCalculator<T extends Number,N extends Number> extends Cal
         }
         System.out.println();
     }
+
+    public List<Double> getResultsGreaterThan(double value) {
+        return ArithmeticCalculator.Results.stream()
+                .filter(result -> result > value) // 입력값보다 큰 결과만 필터링
+                .toList(); // 필터링된 결과를 리스트로 반환
+    }
 }

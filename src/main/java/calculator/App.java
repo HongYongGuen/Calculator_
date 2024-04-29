@@ -111,10 +111,22 @@ public class App {
                 String remove = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력
                 if(remove.toLowerCase().equals("remove")) calculator.removeResult();//대소문자 상관없이  입력 확인 첫번째 요소 삭제
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                /* 위 요구사항에 맞게 구현 */
                 String inquiry = sc.nextLine();//enter키만 쳐도 넘어가게 nextLine()으로 입력
-                if(inquiry.toLowerCase().equals("inquiry")) calculator.inquiryResults();
+                if(inquiry.toLowerCase().equals("inquiry")) {
+                    System.out.println("입력받은 수 보다 큰 수를 조회합니다.");
+                    double inquiryNum = Double.parseDouble(sc.nextLine());
+                    List<Double> imsi=calculator.getResultsGreaterThan(inquiryNum);
+                    System.out.print(inquiryNum+"보다 큰 값 : ");
+                    for(double i : imsi){
+                        System.out.printf("%.2f ",i);
+                    }
+                    System.out.println();
+
+                    //calculator.inquiryResults();
+                }
                 //대소문자 상관없이 입력 확인 및 출력
+
+
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
